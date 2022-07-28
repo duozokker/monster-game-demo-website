@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>OMNIWARP</title>
+    <!-- <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css"> -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Footer-Basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Registration-Form-with-Photo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+
+    {% endblock %}
+    
+</head>
+
+<body>
+    {%if username%}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgba(84,183,198,0.38);">
+        <div class="container"><a class="navbar-brand" href="{{ url_for('.home') }}">OMNIWARP</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Warp</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="#">{{ username }}</a><a class="btn btn-light action-button" role="button" href="{{ url_for('.logout') }}" style="background-color: rgb(95,86,198);">Logout</a></span></div>
+        </div>
+    </nav>
+    {%else%}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgba(84,183,198,0.38);">
+        <div class="container"><a class="navbar-brand" href="{{ url_for('.home') }}">Warpmon</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Warp</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="{{ url_for('.login') }}">Log In</a><a class="btn btn-light action-button" role="button" href="{{ url_for('.register') }}" style="background-color: rgb(95,86,198);">Sign Up</a></span></div>
+        </div>
+    </nav>
+    {%endif%}
+    {% block main %}{% endblock %}
+    
+
+    <div class="footer-basic" style="background-color: rgba(84,183,198,0.38);">
+        <footer>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{{ url_for('.home') }}">Home</a></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"><a href="{{ url_for('.terms_and_conditions') }}">Terms</a></li>
+                <li class="list-inline-item"><a href="{{ url_for('.privacy_policy') }}">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Leonaderi.tech © 2020</p>
+        </footer>
+    </div>
+    {% block script %}
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</body>
+
+</html>

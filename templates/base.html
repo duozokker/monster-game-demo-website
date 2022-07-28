@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+
+    
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.min.css') }}"> -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Game Ritradmon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,900">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    
+    
+
+    {% endblock %}
+    
+</head>
+
+<body>
+    {%if username%}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgba(84,183,198,0.38);">
+        <div class="container"><a class="navbar-brand" href="{{ url_for('.home') }}">OMNIWARP</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Warp</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="#">{{ username }}</a><a class="btn btn-light action-button" role="button" href="{{ url_for('.logout') }}" style="background-color: rgb(95,86,198);">Logout</a></span></div>
+        </div>
+    </nav>
+    {%else%}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgba(84,183,198,0.38);">
+        <div class="container"><a class="navbar-brand" href="{{ url_for('.home') }}">OMNIWARP</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Inventory</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('.home') }}">Warp</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="{{ url_for('.login') }}">Log In</a><a class="btn btn-light action-button" role="button" href="{{ url_for('.register') }}" style="background-color: rgb(95,86,198);">Sign Up</a></span></div>
+        </div>
+    </nav>
+    {%endif%}
+    {% block main %}{% endblock %}
+    
+
+    <div class="footer-basic" style="background-color: rgba(84,183,198,0.38);">
+        <footer>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{{ url_for('.home') }}">Home</a></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"><a href="{{ url_for('.terms_and_conditions') }}">Terms</a></li>
+                <li class="list-inline-item"><a href="{{ url_for('.privacy_policy') }}">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Leonaderi.tech © 2020</p>
+        </footer>
+    </div>
+    {% block script %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/script.min.js') }}"> </script>
+    {% endblock %}
+</body>
+
+</html>

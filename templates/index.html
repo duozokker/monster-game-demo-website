@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block main %}
+
+<div data-bs-parallax-bg="true" style="height: 500px;background: url({{ url_for('static', filename='/assets/img/Moon.png') }}) bottom / cover;"><input class="form-control-plaintext" type="text" value="YOUR TIME HAS COME" readonly="" style="text-align: center;border-style: none;height: 498px;font-size: 28px;font-family: Roboto, sans-serif;"></div>
+    <div class="photo-gallery">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">The world of Omniwarp await's you</h2>
+                <p class="text-center">Explore the world of Omniwarp to find and tame warp creatures (OmniLavs) to rule the world of Omniwarp</p>
+            </div>
+            <div class="row photos">
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a data-lightbox="photos" href="/assets/img/desk.jpg"><img class="img-fluid" src="{{ url_for('static', filename='/assets/img/shadowknight.PNG') }}"></a></div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a data-lightbox="photos" href="/assets/img/building.jpg"><img class="img-fluid" src="{{ url_for('static', filename='/assets/img/Dark_Assasin.PNG') }}"></a></div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a data-lightbox="photos" href="/assets/img/loft.jpg"><img class="img-fluid" src="{{ url_for('static', filename='/assets/img/Shadow_golem.PNG') }}"></a></div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a data-lightbox="photos" href="/assets/img/loft.jpg"><img class="img-fluid" src="{{ url_for('static', filename='/assets/img/Fire_spirit.PNG') }}"></a></div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block script %}
+  {{ super() }}
+{% endblock %}

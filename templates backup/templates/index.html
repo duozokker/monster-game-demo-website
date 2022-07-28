@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block main %}
+
+{% if username%}
+<h1>Hey, {{ username }}!</h1>
+{% else%}
+<h1>Please Login</h1>
+{%endif%}
+
+
+{% endblock %}
+{% block script %}
+  {{ super() }}
+{% endblock %}
